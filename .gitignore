@@ -29,7 +29,9 @@ production/
 *.pyc
 
 clients/GVGAI-JavaClient/src/sampleRandom.zip
-
+clients/GVGAI-JavaClient/src/compiled_gvgai
+clients/GVGAI-JavaClient/src/server-out
+clients/GVGAI-JavaClient/src/server-out2
 
 clients/GVGAI-JavaClient/logs/output_server_redirect_err.txt
 

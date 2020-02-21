@@ -109,6 +109,7 @@ public class TestLearningClient
         }
 
         //Start the client side of the communication
+        // This is where the communication starts. I could maybe redirect it.
         ClientComm ccomm = new ClientComm(agentName);
         ccomm.startComm();
         //Report total time spent.

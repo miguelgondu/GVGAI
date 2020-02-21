@@ -61,6 +61,9 @@ class IOSocket:
             sys.exit()
 
     def readLine(self):
+        '''
+        I could modify this function to write stuff somewhere else.
+        '''
         try:
             msg = self.recv_end()
             return msg
