@@ -155,7 +155,7 @@ public class ArcadeMachine {
 
 			// Get the score for the result.
 			toPlay.handleResult();
-			toPlay.printResult();
+			// toPlay.printResult();
 			return toPlay.getFullResult();
 			}
 		}
@@ -172,7 +172,7 @@ public class ArcadeMachine {
 
 		// This, the last thing to do in this method, always:
 		toPlay.handleResult();
-		toPlay.printResult();
+		// toPlay.printResult();
 
 		return toPlay.getFullResult();
 	}
