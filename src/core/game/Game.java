@@ -1090,6 +1090,9 @@ public abstract class Game {
 	 * collisions and end game situations.
 	 */
 	private void gameCycle() {
+		// I could modify this in order to store
+		// the playtrace, if I wanted to do that.
+
 		gameTick++; // next game tick.
 
 		// Update our state observation (forward model) with the information of

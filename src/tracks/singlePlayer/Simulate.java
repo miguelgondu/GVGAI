@@ -6,44 +6,26 @@ import core.logging.Logger;
 import tools.Utils;
 import tracks.ArcadeMachine;
 
-/*
-TODO: write something similar to this, but outputting the right stuff.
-*/
-
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/10/13 Time: 16:29 This is a
  * Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class Test {
+public class Simulate {
 
     public static void main(String[] args) {
-
-		// Available tracks:
-		String sampleRandomController = "tracks.singlePlayer.simple.sampleRandom.Agent";
-		String doNothingController = "tracks.singlePlayer.simple.doNothing.Agent";
-		String sampleOneStepController = "tracks.singlePlayer.simple.sampleonesteplookahead.Agent";
-		String sampleFlatMCTSController = "tracks.singlePlayer.simple.greedyTreeSearch.Agent";
-
-		String sampleMCTSController = "tracks.singlePlayer.advanced.sampleMCTS.Agent";
-        String sampleRSController = "tracks.singlePlayer.advanced.sampleRS.Agent";
-        String sampleRHEAController = "tracks.singlePlayer.advanced.sampleRHEA.Agent";
-		String sampleOLETSController = "tracks.singlePlayer.advanced.olets.Agent";
-
-		//Load available games
-		String spGamesCollection =  "examples/all_games_sp.csv";
-		String[][] games = Utils.readGames(spGamesCollection);
-
+        /* Parse the args:
+            0. gameVGDL: a string with the filepath to the VGDL of the game.
+            1. gameTxt: a string with the filepath to the txt of the level.
+            2. agent: a string with the agent to run.
+            3. seed: the seed for the process.
+        */
+        String gameVGDL = args[0];
+        String gameTxt = args[1];
+        String agent = args[2];
+        int seed = Integer.parseInt(args[3]);
+        
 		//Game settings
 		boolean visuals = true;
-		int seed = new Random().nextInt();
-
-		// Game and level to play
-		int gameIdx = 0;
-		int levelIdx = 0; // level names from 0 to 4 (game_lvlN.txt).
-		String gameName = games[gameIdx][1];
-		String game = games[gameIdx][0];
-		String level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
-
 		String recordActionsFile = null;// "actions_" + games[gameIdx] + "_lvl"
 						// + levelIdx + "_" + seed + ".txt";
 						// where to record the actions
@@ -53,7 +35,7 @@ public class Test {
 		// ArcadeMachine.playOneGame(game, level1, recordActionsFile, seed);
 
 		// 2. This plays a game in a level by the controller.
-		ArcadeMachine.runOneGame(game, level1, visuals, sampleMCTSController, recordActionsFile, seed, 0);
+		double[] fullResult = ArcadeMachine.runOneGame(gameVGDL, gameTxt, visuals, agent, recordActionsFile, seed, 0);
 
 
 		// 3. This replays a game from an action file previously recorded
