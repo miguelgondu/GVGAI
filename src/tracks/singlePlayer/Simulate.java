@@ -24,11 +24,11 @@ public class Simulate {
         String gameTxt = args[1];
 		String agent = args[2];
 		String recordActionsFile;
-		if (args[3] != "None") {
-			recordActionsFile = args[3];
+		if (args[3].equals("None")) {
+			recordActionsFile = null;
 		}
 		else {
-			recordActionsFile = null;
+			recordActionsFile = args[3];
 		}
 		int seed = Integer.parseInt(args[4]);
         
