@@ -385,6 +385,87 @@ public class ArcadeMachine {
      * specified. Graphics always off.
      * 
      * @param game_file   game description file.
+     * @param level_file  level description file.
+     * @param iterations   how many times the level has to be played.
+     * @param agentName   name of the agent.
+     * @param actionFilePrefix names of the files where the actions of this player, for this
+     *   game, should be recorded. Accepts null if no recording is desired. If not null,
+     *   this array must contain as much String objects as level_files.length*level_times.
+     */
+    // public static int[] simulateLevel(String game_file, String level_file, int iterations, String agentName, String actionFilePrefix, int seed) {
+    //     VGDLFactory.GetInstance().init(); // This always first thing to do.
+    //     VGDLRegistry.GetInstance().init();
+
+    //     Game toPlay = new VGDLParser().parseGame(game_file);
+        
+    //     // double[] scores = new double[iterations]; // store scores for all
+    //     int[] victories = new int[iterations];
+
+    //     Random rng = new Random(seed);
+    //     // build the level in the game.
+    //     int randomSeed = rng.nextInt();
+    //     toPlay.buildLevel(level_file, seed);
+        
+    //     for (int i = 0; i < iterations; ++i) {
+    //         // Determine the random seed, different for each game to be
+    //         // played.
+    //         randomSeed = rng.nextInt();
+            
+    //         // Warm the game up.
+    //         ArcadeMachine.warmUp(toPlay, CompetitionParameters.WARMUP_TIME);
+
+    //         // Create the player.
+    //         int no_players = 1;
+    //         String filename = actionFilePrefix == "None"? actionFilePrefix.concat("_" + i + ".txt") : null;
+            
+    //         Player player = ArcadeMachine.createPlayer(agentName, filename, toPlay.getObservation(), randomSeed, false);
+
+    //         if (player == null) {
+    //             // Something went wrong in the constructor, controller
+    //             // disqualified
+    //             // toPlay.disqualify(j);
+    //             // System.out.println("The player created was null. Weird.");
+    //             toPlay.getAvatars()[0].disqualify(true);
+    //         }
+
+    //         // Play the game if at least 2 players in multiplayer games or
+    //         // at least 1 in single player.
+    //         // Get array of scores back.
+    //         Player[] players = {player};
+    //         double[] score;
+    //         score = toPlay.runGame(players, randomSeed);
+    //         victories[i] = toPlay.getWinner(0) == Types.WINNER.PLAYER_WINS ? 1 : 0;
+            
+    //         // Finally, when the game is over, we need to tear the players
+    //         // down.
+    //         if (!ArcadeMachine.tearPlayerDown(toPlay, players, filename, randomSeed, true)) {
+    //             score = toPlay.handleResult();
+    //             // toPlay.printResult();
+    //         }
+
+    //         // Get players stats
+    //         // for (Player player : players)
+    //         //     if (player != null) {
+    //         //     int id = player.getPlayerID();
+    //         //     scores[id].add(score[id]);
+    //         //     victories[id].add(toPlay.getWinner(id) == Types.WINNER.PLAYER_WINS ? 1 : 0);
+    //         //     }
+    //         // scores[i] = score[0];
+            
+
+    //         // reset the game.
+    //         toPlay.reset();
+    //     }
+
+    //     return victories;
+    // }
+
+    /**
+     * Reads and launches a game for a bot to be played. It specifies which
+     * levels to play and how many times. Filenames for saving actions can be
+     * specified. Graphics always off.
+     * 
+     * @param game_file   game description file.
      * @param level_files  array of level file names to play.
      * @param level_times   how many times each level has to be played.
      * @param actionFiles names of the files where the actions of this player, for this
