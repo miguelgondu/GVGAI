@@ -39,7 +39,14 @@ public class Simulate {
 		double[] fullResult = ArcadeMachine.runOneGame(gameVGDL, gameTxt, visuals, agent, recordActionsFile, seed, 0);
 
 		// Print the result for the Python listener
-		System.out.println(fullResult[0]);
+		// 0: win state
+		// 1: score
+		// 2: game tick.
+		String serialized_output = "{";
+		serialized_output = serialized_output.concat("\"win\": " + fullResult[0] + ",");
+		serialized_output = serialized_output.concat("\"score\": " + fullResult[1] + ",");
+		serialized_output = serialized_output.concat("\"steps\": " + fullResult[2] + "}");
+		System.out.println(serialized_output);
 		System.out.print("END");
     }
 }
