@@ -25,10 +25,6 @@ public class Replay {
 		String recordActionsFile = args[2];
 
 		// Game and level to play
-		// /Users/migd/Projects/ITAE_First_Test_paper/code/2020_02_26_experiments/zelda/zelda_experiments/playtraces/1583803396_674288_sampleRHEA_10_gens_50_iter_100_init_40_roll_17_seed_playtrace_seed_9.txt
-		// /Users/migd/Projects/ITAE_First_Test_paper/code/2020_02_26_experiments/zelda/zelda_experiments/zelda_vgld_desc.txt
-		// /Users/migd/Projects/ITAE_First_Test_paper/code/2020_02_26_experiments/zelda/zelda_experiments/levels/1583803396_674288_sampleRHEA_10_gens_50_iter_100_init_40_roll_17_seed_level.txt
-		// 3. This replays a game from an action file previously recorded
 		 ArcadeMachine.replayGame(gameVGDL, gameTxt, true, recordActionsFile);
 
     }
