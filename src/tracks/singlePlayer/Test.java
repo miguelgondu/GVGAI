@@ -35,7 +35,7 @@ public class Test {
 
 		//Game settings
 		boolean visuals = true;
-		int seed = new Random().nextInt();
+		int seed = 17;
 
 		// Game and level to play
 		int gameIdx = 0;

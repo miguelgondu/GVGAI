@@ -19,6 +19,7 @@ public class Simulate {
 			2. agent: a string with the agent to run.
 			3. recordActionsFile: a string with where to store the playtrace. None for no storing.
 			4. seed: the seed for the process.
+			5. visuals: decided on whether the 5th flag is "debug" or not.
         */
         String gameVGDL = args[0];
         String gameTxt = args[1];
@@ -31,9 +32,17 @@ public class Simulate {
 			recordActionsFile = args[3];
 		}
 		int seed = Integer.parseInt(args[4]);
+		boolean visuals = false;
+		if (args.length == 6){
+			if (args[5].equals("debug")) {
+				visuals = true;
+			}
+			else {
+				visuals = false;
+			}
+		}
         
 		//Game settings
-		boolean visuals = false;
 
 		// Play one game
 		double[] fullResult = ArcadeMachine.runOneGame(gameVGDL, gameTxt, visuals, agent, recordActionsFile, seed, 0);

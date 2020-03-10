@@ -202,7 +202,8 @@ public class ArcadeMachine {
 		VGDLRegistry.GetInstance().init();
 
 		// First, we create the game to be played..
-		Game toPlay = new VGDLParser().parseGame(game_file);
+        Game toPlay = new VGDLParser().parseGame(game_file);
+        // WHY ARE THEY BUILDING IT WITH 0 SEED?! I think they don't use the seed for anything.
 		toPlay.buildLevel(level_file, 0);
 
 		String agentName;
